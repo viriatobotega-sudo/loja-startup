@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Painel Admin - Web Moz Digital" />
+  <meta name="google-adsense-account" content="ca-pub-2569329537599023">
+  <title>Painel Admin - Web Moz</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/images/favicon.png" type="image/png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin: 1.5rem 0;
+      color: #60a5fa;
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #334155;
+    }
+
+    .tab {
+      padding: 0.8rem 1.5rem;
+      background: #1e293b;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .tab.active {
+      background: #334155;
+      color: #60a5fa;
+      border-bottom: 3px solid #60a5fa;
+    }
+
+    .form {
+      display: none;
+      background: #1e293b;
+      padding: 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .form.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      background: #0f172a;
+      color: #e2e8f0;
+      font-size: 0.95rem;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.7rem 1.2rem;
+      background: #60a5fa;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: #4c95e0;
+    }
+
+    .lista {
+      margin-top: 2rem;
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 1rem;
+      max-height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem;
+      background: #334155;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .item a {
+      color: #60a5fa;
+      text-decoration: none;
+      margin-left: 0.8rem;
+    }
+
+    .item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Anúncio */
+    .ad-footer {
+      max-width: 1000px;
+      margin: 3rem auto 1rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>📋 Painel Administrativo</h1>
+
+    <!-- Abas -->
+    <div class="tabs">
+      <button class="tab active" data-tab="produto">Adicionar Produto</button>
+      <button class="tab" data-tab="manual">Adicionar Manual</button>
+    </div>
+
+    <!-- Formulário de Produto -->
+    <form class="form active" id="form-produto">
+      <div class="form-group">
+        <label>Nome</label>
+        <input type="text" id="produto-nome" required />
+      </div>
+      <div class="form-group">
+        <label>Descrição</label>
+        <textarea id="produto-desc" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Preço (ou deixe em branco se for grátis)</label>
+        <input type="number" id="produto-preco" step="0.01" placeholder="29.90" />
+      </div>
+      <div class="form-group">
+        <label>Imagem (URL)</label>
+        <input type="text" id="produto-img" placeholder="https://exemplo.com/imagem.jpg" required />
+      </div>
+      <div class="form-group">
+        <label>Categoria</label>
+        <input type="text" id="produto-categoria" placeholder="digital, kit, etc" required />
+      </div>
+      <button type="submit">Salvar Produto</button>
+    </form>
+
+    <!-- Formulário de Manual -->
+    <form class="form" id="form-manual">
+      <div class="form-group">
+        <label>Título</label>
+        <input type="text" id="manual-titulo" required />
+      </div>
+      <div class="form-group">
+        <label>Descrição</label>
+        <textarea id="manual-desc" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Link do PDF (URL)</label>
+        <input type="text" id="manual-arquivo" placeholder="https://exemplo.com/guia.pdf" required />
+      </div>
+      <div class="form-group">
+        <label>Categoria</label>
+        <input type="text" id="manual-categoria" placeholder="iniciante, avançado, etc" required />
+      </div>
+      <button type="submit">Salvar Manual</button>
+    </form>
+
+    <!-- Lista de Produtos -->
+    <h2>Produtos Cadastrados</h2>
+    <div class="lista" id="lista-produtos"></div>
+
+    <!-- Lista de Manuais -->
+    <h2>Manuais Cadastrados</h2>
+    <div class="lista" id="lista-manuais"></div>
+
+    <!-- Anúncio opcional no rodapé -->
+    <div class="ad-footer">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2569329537599023"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="footer">
+      🔐 Painel exclusivo - Não compartilhe o link
+    </div>
+  </div>
+
+  <!-- Script do AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2569329537599023"
+     crossorigin="anonymous"></script>
+
+  <!-- Script Principal -->
+  <script type="module">
+    // Importar Firebase
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+    import { getDatabase, ref, push, get, remove } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDj1qqCBztEpF31n9UU3DFKwiymc2Bd-iM",
+      authDomain: "bot-ia-20e75.firebaseapp.com",
+      databaseURL: "https://bot-ia-20e75-default-rtdb.firebaseio.com",
+      projectId: "bot-ia-20e75",
+      storageBucket: "bot-ia-20e75.appspot.com",
+      messagingSenderId: "601684351023",
+      appId: "1:601684351023:android:e94d0ab92f512c4cb80eda"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Abas
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.form').forEach(f => f.classList.remove('active'));
+        tab.classList.add('active');
+        const tabName = tab.getAttribute('data-tab');
+        document.getElementById(`form-${tabName}`).classList.add('active');
+      });
+    });
+
+    // Formulários
+    document.getElementById('form-produto').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nome = document.getElementById('produto-nome').value;
+      const desc = document.getElementById('produto-desc').value;
+      const preco = document.getElementById('produto-preco').value || null;
+      const img = document.getElementById('produto-img').value;
+      const categoria = document.getElementById('produto-categoria').value;
+
+      await push(ref(db, 'produtos'), { nome, descricao: desc, preco, imagem: img, categoria });
+      alert('Produto salvo com sucesso!');
+      loadProdutos();
+      e.target.reset();
+    });
+
+    document.getElementById('form-manual').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const titulo = document.getElementById('manual-titulo').value;
+      const desc = document.getElementById('manual-desc').value;
+      const arquivo = document.getElementById('manual-arquivo').value;
+      const categoria = document.getElementById('manual-categoria').value;
+
+      await push(ref(db, 'manuais'), { titulo, descricao: desc, arquivo, categoria });
+      alert('Manual salvo com sucesso!');
+      loadManuais();
+      e.target.reset();
+    });
+
+    // Carregar listas
+    async function loadProdutos() {
+      const snapshot = await get(ref(db, 'produtos'));
+      const container = document.getElementById('lista-produtos');
+      container.innerHTML = '';
+      if (snapshot.exists()) {
+        Object.entries(snapshot.val()).forEach(([key, p]) => {
+          const item = document.createElement('div');
+          item.className = 'item';
+          item.innerHTML = `
+            ${p.nome} 
+            <a href="#" onclick="deleteItem('produtos', '${key}'); return false;">🗑️ Excluir</a>
+          `;
+          container.appendChild(item);
+        });
+      } else {
+        container.innerHTML = '<p>Nenhum produto cadastrado.</p>';
+      }
+    }
+
+    async function loadManuais() {
+      const snapshot = await get(ref(db, 'manuais'));
+      const container = document.getElementById('lista-manuais');
+      container.innerHTML = '';
+      if (snapshot.exists()) {
+        Object.entries(snapshot.val()).forEach(([key, m]) => {
+          const item = document.createElement('div');
+          item.className = 'item';
+          item.innerHTML = `
+            ${m.titulo} 
+            <a href="#" onclick="deleteItem('manuais', '${key}'); return false;">🗑️ Excluir</a>
+          `;
+          container.appendChild(item);
+        });
+      } else {
+        container.innerHTML = '<p>Nenhum manual cadastrado.</p>';
+      }
+    }
+
+    // Função para excluir
+    window.deleteItem = async (path, key) => {
+      if (confirm('Tem certeza que deseja excluir este item?')) {
+        await remove(ref(db, `${path}/${key}`));
+        alert('Item excluído!');
+        loadProdutos();
+        loadManuais();
+      }
+    };
+
+    // Carregar dados ao iniciar
+    loadProdutos();
+    loadManuais();
+
+    // Carregar anúncios
+    window.addEventListener('load', () => {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+  </script>
+
+</body>
+</html>
