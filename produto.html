@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Detalhes do produto - Web Moz Digital" />
+  <meta name="google-adsense-account" content="ca-pub-2569329537599023">
+  <meta name="google-site-verification" content="lrfXnDIgUTuzmP2fNC4M6sUOpiewQPZbv2JIgM1xLlk" />
+  <title>Detalhes do Produto - Web Moz</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* Cabeçalho */
+    header {
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #60a5fa;
+      cursor: pointer;
+      display: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e2e8f0;
+    }
+
+    /* Conteúdo Principal */
+    .produto-container {
+      max-width: 900px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .produto-detalhe {
+      background: #1e293b;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .produto-imagem {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .produto-info {
+      padding: 1.8rem;
+    }
+
+    .produto-info h1 {
+      font-size: 1.8rem;
+      color: #60a5fa;
+      margin-bottom: 0.6rem;
+    }
+
+    .categoria {
+      display: inline-block;
+      padding: 0.3rem 0.7rem;
+      background: #334155;
+      color: #a5b4fc;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .preco {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 0.8rem 0;
+    }
+
+    .produto-info p {
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+      line-height: 1.7;
+    }
+
+    .btn-comprar {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: opacity 0.3s;
+    }
+
+    .btn-comprar:hover {
+      opacity: 0.9;
+    }
+
+    /* Blocos de Anúncio */
+    .ad-container {
+      max-width: 1000px;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .ad-middle {
+      max-width: 728px;
+      margin: 3rem auto;
+      text-align: center;
+    }
+
+    .ad-footer {
+      max-width: 1000px;
+      margin: 3rem auto 2rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    /* Loading e Erro */
+    .loading, .erro {
+      text-align: center;
+      padding: 3rem;
+      color: #60a5fa;
+      font-size: 1.1rem;
+    }
+
+    .erro { color: #f87171; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-btn { display: block; }
+      nav { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background: #0f172a; flex-direction: column; align-items: center; padding-top: 5rem; transition: right 0.4s ease; z-index: 99; border-left: 1px solid #1e293b; }
+      nav.open { right: 0; }
+      nav ul { flex-direction: column; gap: 2rem; }
+      .produto-imagem { height: 240px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <a href="index.html" class="logo">Web Moz</a>
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="manual.html">Manuais</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Anúncio 1: Acima do produto -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2569329537599023"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- Detalhe do Produto -->
+  <div class="produto-container">
+    <div id="produto-detalhe">
+      <div class="loading">Carregando detalhes do produto...</div>
+    </div>
+  </div>
+
+  <!-- Anúncio 2: Entre produto e rodapé -->
+  <div class="ad-middle">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2569329537599023"
+         data-ad-slot="0987654321"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- Anúncio 3: Rodapé -->
+  <div class="ad-footer">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2569329537599023"
+         data-ad-slot="1122334455"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- Script do AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2569329537599023"
+     crossorigin="anonymous"></script>
+
+  <!-- Script Principal -->
+  <script type="module">
+    // Importar Firebase
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+    import { getDatabase, ref, get } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDj1qqCBztEpF31n9UU3DFKwiymc2Bd-iM",
+      authDomain: "bot-ia-20e75.firebaseapp.com",
+      databaseURL: "https://bot-ia-20e75-default-rtdb.firebaseio.com",
+      projectId: "bot-ia-20e75",
+      storageBucket: "bot-ia-20e75.appspot.com",
+      messagingSenderId: "601684351023",
+      appId: "1:601684351023:android:e94d0ab92f512c4cb80eda"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Pegar ID da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    const detalheDiv = document.getElementById('produto-detalhe');
+
+    if (!productId) {
+      detalheDiv.innerHTML = '<div class="erro">Produto não especificado.</div>';
+      console.error("ID ausente na URL");
+      exit;
+    }
+
+    const produtoRef = ref(db, `produtos/${productId}`);
+
+    get(produtoRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        const p = snapshot.val();
+        const imageUrl = p.imagem || 'https://via.placeholder.com/800x400?text=Imagem+Indisponível';
+        const preco = p.preco ? `R$ ${parseFloat(p.preco).toFixed(2)}` : 'Grátis';
+
+        detalheDiv.innerHTML = `
+          <img class="produto-imagem" src="${imageUrl}" alt="${p.nome}">
+          <div class="produto-info">
+            <span class="categoria">${p.categoria || 'Digital'}</span>
+            <h1>${p.nome}</h1>
+            <p class="preco">${preco}</p>
+            <p>${p.descricao || 'Descrição não disponível.'}</p>
+            <a href="#" class="btn-comprar">Baixar Agora</a>
+          </div>
+        `;
+      } else {
+        detalheDiv.innerHTML = '<div class="erro">Produto não encontrado.</div>';
+      }
+    }).catch(err => {
+      detalheDiv.innerHTML = '<div class="erro">Erro ao carregar produto.</div>';
+      console.error("Firebase error:", err);
+    });
+
+    // Menu Hambúrguer
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('navbar').classList.toggle('open');
+    });
+
+    // Carregar anúncios
+    window.addEventListener('load', () => {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+  </script>
+
+</body>
+</html>
