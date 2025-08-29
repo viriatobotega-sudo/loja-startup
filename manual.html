@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Manuais e guias práticos - Web Moz Digital" />
+  <meta name="google-adsense-account" content="ca-pub-2569329537599023">
+  <meta name="google-site-verification" content="lrfXnDIgUTuzmP2fNC4M6sUOpiewQPZbv2JIgM1xLlk" />
+  <title>Manuais - Web Moz</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* Cabeçalho */
+    header {
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #60a5fa;
+      cursor: pointer;
+      display: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e2e8f0;
+    }
+
+    /* Cabeçalho da Página */
+    .page-header {
+      padding: 2.5rem 5%;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-header p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    /* Blocos de Anúncio */
+    .ad-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .ad-middle {
+      max-width: 728px;
+      margin: 3rem auto;
+      text-align: center;
+    }
+
+    .ad-footer {
+      max-width: 1000px;
+      margin: 3rem auto 2rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    /* Lista de Manuais */
+    .manuais-container {
+      padding: 1rem 5%;
+      max-width: 1000px;
+      margin: 0 auto 2rem;
+    }
+
+    .manual-item {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      border: 1px solid #334155;
+    }
+
+    .manual-item h3 {
+      font-size: 1.2rem;
+      color: #60a5fa;
+      margin-bottom: 0.5rem;
+    }
+
+    .manual-item p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .categoria {
+      font-size: 0.8rem;
+      color: #a5b4fc;
+      background: #334155;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.8rem;
+      display: inline-block;
+    }
+
+    .btn-download {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: #334155;
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .btn-download:hover {
+      background: #475569;
+    }
+
+    .loading, .erro {
+      text-align: center;
+      padding: 3rem;
+      color: #60a5fa;
+      font-size: 1.1rem;
+    }
+
+    .erro { color: #f87171; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-btn { display: block; }
+      nav { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background: #0f172a; flex-direction: column; align-items: center; padding-top: 5rem; transition: right 0.4s ease; z-index: 99; border-left: 1px solid #1e293b; }
+      nav.open { right: 0; }
+      nav ul { flex-direction: column; gap: 2rem; }
+      .page-header h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <a href="index.html" class="logo">Web Moz</a>
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="manual.html">Manuais</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Anúncio 1: Acima da lista -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2569329537599023"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- Cabeçalho da Página -->
+  <section class="page-header">
+    <h1>Manuais e Guias</h1>
+    <p>Documentos práticos, passo a passo e recursos para você baixar e usar.</p>
+  </section>
+
+  <!-- Lista de Manuais -->
+  <section class="manuais-container">
+    <div id="manuais-lista">
+      <div class="loading">Carregando manuais...</div>
+    </div>
+  </section>
+
+  <!-- Anúncio 2: Meio da página -->
+  <div class="ad-middle">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2569329537599023"
+         data-ad-slot="0987654321"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- Anúncio 3: Rodapé -->
+  <div class="ad-footer">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2569329537599023"
+         data-ad-slot="1122334455"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- Script do AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2569329537599023"
+     crossorigin="anonymous"></script>
+
+  <!-- Script Principal -->
+  <script type="module">
+    // Importar Firebase
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+    import { getDatabase, ref, get } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDj1qqCBztEpF31n9UU3DFKwiymc2Bd-iM",
+      authDomain: "bot-ia-20e75.firebaseapp.com",
+      databaseURL: "https://bot-ia-20e75-default-rtdb.firebaseio.com",
+      projectId: "bot-ia-20e75",
+      storageBucket: "bot-ia-20e75.appspot.com",
+      messagingSenderId: "601684351023",
+      appId: "1:601684351023:android:e94d0ab92f512c4cb80eda"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const manuaisRef = ref(db, 'manuais');
+    const container = document.getElementById('manuais-lista');
+
+    get(manuaisRef).then((snapshot) => {
+      container.innerHTML = '';
+      if (snapshot.exists()) {
+        Object.entries(snapshot.val()).forEach(([key, m]) => {
+          container.innerHTML += `
+            <div class="manual-item">
+              <span class="categoria">${m.categoria || 'Geral'}</span>
+              <h3>${m.titulo}</h3>
+              <p>${m.descricao || 'Sem descrição.'}</p>
+              <a href="${m.arquivo}" class="btn-download" target="_blank">📥 Baixar Manual</a>
+            </div>
+          `;
+        });
+      } else {
+        container.innerHTML = '<p class="erro">Nenhum manual disponível.</p>';
+      }
+    }).catch(err => {
+      container.innerHTML = '<p class="erro">Erro ao carregar manuais.</p>';
+      console.error("Erro Firebase:", err);
+    });
+
+    // Menu Hambúrguer
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('navbar').classList.toggle('open');
+    });
+
+    // Carregar anúncios
+    window.addEventListener('load', () => {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+  </script>
+
+</body>
+</html>
