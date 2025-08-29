@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Web Moz Digital – Produtos digitais, manuais e ferramentas úteis." />
+  <meta name="google-adsense-account" content="ca-pub-2569329537599023">
+  <meta name="google-site-verification" content="lrfXnDIgUTuzmP2fNC4M6sUOpiewQPZbv2JIgM1xLlk" />
+  <title>Web Moz Digital</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* Cabeçalho estilo Grok */
+    header {
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #60a5fa;
+      cursor: pointer;
+      display: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e2e8f0;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4rem 5%;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: #94a3b8;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    /* Anúncio 1: Acima dos produtos */
+    .ad-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    /* Produtos */
+    .produtos-container {
+      padding: 2rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .produtos-container h2 {
+      font-size: 1.6rem;
+      color: #cbd5e1;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .produtos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .produto-card {
+      background: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .produto-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .produto-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .produto-info {
+      padding: 1rem;
+    }
+
+    .produto-info h3 {
+      font-size: 1.1rem;
+      color: #60a5fa;
+      margin-bottom: 0.5rem;
+    }
+
+    .produto-info p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .preco {
+      font-weight: 600;
+      color: #f8fafc;
+    }
+
+    .btn-detalhes {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      background: #334155;
+      color: #60a5fa;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    .btn-detalhes:hover {
+      background: #475569;
+    }
+
+    /* Anúncio 2: Entre seções */
+    .ad-middle {
+      max-width: 728px;
+      margin: 3rem auto;
+      text-align: center;
+    }
+
+    /* Anúncio 3: Rodapé */
+    .ad-footer {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-btn { display: block; }
+      nav { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background: #0f172a; flex-direction: column; align-items: center; padding-top: 5rem; transition: right 0.4s ease; z-index: 99; border-left: 1px solid #1e293b; }
+      nav.open { right: 0; }
+      nav ul { flex-direction: column; gap: 2rem; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <a href="index.html" class="logo">Web Moz</a>
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="manual.html">Manuais</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Ferramentas Digitais que Funcionam</h1>
+    <p>Produtos práticos, manuais completos e soluções simples para quem quer evoluir com tecnologia.</p>
+  </section>
+
+  <!-- Anúncio 1: Acima dos produtos -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2569329537599023"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- Produtos Destaque -->
+  <section class="produtos-container">
+    <h2>Produtos em Destaque</h2>
+    <div id="produtos-destaque" class="produtos-grid">
+      <div>Carregando produtos...</div>
+    </div>
+  </section>
+
+  <!-- Anúncio 2: Meio da página -->
+  <div class="ad-middle">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2569329537599023"
+         data-ad-slot="0987654321"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- Anúncio 3: Rodapé -->
+  <div class="ad-footer">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2569329537599023"
+         data-ad-slot="1122334455"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- Scripts -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2569329537599023"
+     crossorigin="anonymous"></script>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+    import { getDatabase, ref, get } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDj1qqCBztEpF31n9UU3DFKwiymc2Bd-iM",
+      authDomain: "bot-ia-20e75.firebaseapp.com",
+      databaseURL: "https://bot-ia-20e75-default-rtdb.firebaseio.com",
+      projectId: "bot-ia-20e75",
+      storageBucket: "bot-ia-20e75.appspot.com",
+      messagingSenderId: "601684351023",
+      appId: "1:601684351023:android:e94d0ab92f512c4cb80eda"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const produtosRef = ref(db, 'produtos');
+    const container = document.getElementById('produtos-destaque');
+
+    get(produtosRef).then((snapshot) => {
+      container.innerHTML = '';
+      if (snapshot.exists()) {
+        Object.entries(snapshot.val()).slice(0, 4).forEach(([key, p]) => {
+          const img = p.imagem || 'https://via.placeholder.com/300x160?text=Produto';
+          const preco = p.preco ? `R$${parseFloat(p.preco).toFixed(2)}` : 'Grátis';
+          container.innerHTML += `
+            <div class="produto-card">
+              <img class="produto-img" src="${img}" alt="${p.nome}">
+              <div class="produto-info">
+                <h3>${p.nome}</h3>
+                <p>${p.descricao?.substring(0, 80)}...</p>
+                <p class="preco">${preco}</p>
+                <a href="produto.html?id=${key}" class="btn-detalhes">Ver Detalhes</a>
+              </div>
+            </div>
+          `;
+        });
+      } else {
+        container.innerHTML = '<p>Nenhum produto encontrado.</p>';
+      }
+    });
+
+    // Menu
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('navbar').classList.toggle('open');
+    });
+
+    // Carregar anúncios
+    window.addEventListener('load', () => {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+  </script>
+
+</body>
+</html>
